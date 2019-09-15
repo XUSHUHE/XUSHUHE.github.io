@@ -45,10 +45,10 @@
 	<div class="navDiv">
 		<nav class="blogNav">
 			<ul>
-				<li><a href="" class="blogNav_item active">博客首页</a></li>
-				<li><a href="" class="blogNav_item">博文目录</a></li>
-				<li><a href="" class="blogNav_item">图片分享</a></li>
-				<li><a href="" class="blogNav_item">我的信息</a></li>
+				<li><a href="" id="blog_main" class="blogNav_item active">博客首页</a></li>
+				<li><a href="" id="blog_dir" class="blogNav_item">博文目录</a></li>
+				<li><a href="" id="imgsShare" class="blogNav_item">图片分享</a></li>
+				<li><a href="" id="myInfo" class="blogNav_item">我的信息</a></li>
 			</ul>
 		</nav>
 	</div>
@@ -60,15 +60,15 @@
 		</object> -->
 	</div>
 	<div class="pagingDiv">
-		<span class="index first" data-index="1">首页</span>
-		<span data-index="1">&lt;</span>
-		<span data-index="1" class="active">1</span>
-		<span data-index="2">2</span>
-		<span data-index="3">3</span>
-		<span data-index="4">4</span>
-		<span data-index="5">5</span>
-		<span data-index="6">&gt;</span>
-		<span class="index last" data-index="10">尾页</span>
+		<span class="first" data-index="1">首页</span>
+		<span data-index="1" class="pre">&lt;</span>
+		<span data-index="1" class="pageItem active">1</span>
+		<span data-index="2" class="pageItem">2</span>
+		<span data-index="3" class="pageItem">3</span>
+		<span data-index="4" class="pageItem">4</span>
+		<span data-index="5" class="pageItem">5</span>
+		<span data-index="2" class="next">&gt;</span>
+		<span class="last" data-index="10">尾页</span>
 	</div>
 	<footer>
 		<div class="footerDiv">
@@ -78,7 +78,8 @@
 						<span class="title">关于博客</span>
 						<div class="text">
 							<span>时光流年是由张三建立，主要用于分享生活中的趣事及提升工作技能的一些知识。</span>
-							<img  src="holder.js/250x70" alt="" />
+							<img src="holder.js/100px70" alt="" />
+							<!-- <img style="width: 100%;height:70px;" src="img/logo.png" alt="" /> -->
 						</div>
 					</div>
 				</li>
@@ -86,36 +87,58 @@
 					<div class="newest">
 						<span class="title">最新动态</span>
 						<div class="text">
-							<i class="fa fa-weibo"></i>&nbsp;&nbsp;&nbsp;&nbsp;<span>最浪漫的旅行</span><br/>
-							<span>时光流年是由张三建立，主要用于分享生活中的趣事及提升工作技能的一些知识。</span>
+							<i class="fa fa-weibo" style="display: inline-block;padding: 0 10px 0 0;"></i>
+							<span
+								style="display: inline-block;width: 70%;vertical-align: text-top;">最浪漫的旅行<br />时光流年是由张三建立，主要用于分享生活中的趣事及提升工作技能的一些知识。</span>
+						</div>
+						<div class="text">
+							<i class="fa fa-weibo" style="display: inline-block;padding: 0 10px 0 0;"></i>
+							<span
+								style="display: inline-block;width: 70%;vertical-align: text-top;">最浪漫的旅行<br />时光流年是由张三建立，主要用于分享生活中的趣事及提升</span>
 						</div>
 					</div>
 				</li>
 				<li>
-					<div class="imgShare">
+					<div class="about">
+						<span class="title">关于博客</span>
+						<div class="text">
+							<span>时光流年是由张三建立，主要用于分享生活中的趣事及提升工作技能的一些知识。</span>
+							<img src="holder.js/100px70" alt="" />
+							<!-- <img style="width: 100%;height:70px;" src="img/logo.png" alt="" /> -->
+						</div>
+					</div>
+					<!-- <div class="imgShare">
 						<span class="title">关于博客</span>
 						<div class="text">
 							<span>时光流年是由张三建立，主要用于分享生活中的趣事及提升工作技能的一些知识。</span>
 							<img src="holder.js/250x70" alt="" />
 						</div>
-					</div>
+					</div> -->
 				</li>
 				<li>
-					<div class="comment">
+					<div class="about">
+						<span class="title">关于博客</span>
+						<div class="text">
+							<span>时光流年是由张三建立，主要用于分享生活中的趣事及提升工作技能的一些知识。</span>
+							<img src="holder.js/100px70" alt="" />
+							<!-- <img style="width: 100%;height:70px;" src="img/logo.png" alt="" /> -->
+						</div>
+					</div>
+					<!-- <div class="comment">
 						<span class="title">关于博客</span>
 						<div class="text">
 							<span>时光流年是由张三建立，主要用于分享生活中的趣事及提升工作技能的一些知识。</span>
 							<img src="holder.js/250x70" alt="" />
 						</div>
-					</div>
+					</div> -->
 				</li>
 			</ul>
 		</div>
-		<div class="copyDiv">
+		<div class="copDiv">
 			Copyright 2019 ZhangSan
 		</div>
 	</footer>
-	<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://cdn.bootcss.com/jquery/1.12.1/jquery.min.js"></script>
 	<script src="https://cdn.bootcss.com/holder/2.9.6/holder.js"></script>
 	<script src="js/basic.js"></script>
 </body>
