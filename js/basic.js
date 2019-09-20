@@ -1,32 +1,44 @@
-/* $(function () {
-    var circleShowImg = $('#circleShowImg');
-    
-}) */
+
 $(document).ready(function () {
+    reSize();
     $('.container').load('./blog_main.html');
     togglePage();
-    /* paging(1);*/
-    toggleIndex(); 
+    toggleIndex();
+    $(window).resize(function() {
+        reSize();
+    });
+    carousel();
 })
-
+//分页
 function toggleIndex() {
+    $(".pagingDiv span").bind("selectstart",function(){return false;});  
     $(".pagingDiv .pageItem").click(function (e) {
-        paging($(this).data("index"));
+        paging($(this).text());
     });
     $(".first").click(function (e) {
-        // paging(1);
+         paging(1);
     });
     $(".last").click(function (e) {
-        // paging(7);
+         paging(9);
     });
     $(".pre").click(function (e) {
-        // paging(7);
+        var t1=parseInt($(".pageItem.active").text())-1;
+        /*  var t2=t1>=1?t1:1;
+        paging(t2);  */
+        if(t1>=1){
+            paging(t1);
+        }
     });
     $(".next").click(function (e) {
-        // paging(7);
+        var t1=parseInt($(".pageItem.active").text())+1;
+        /* var t2=t1<=9?t1:9;
+        paging(t2); */
+        if(t1<=9){
+            paging(t1);
+        }
     });
 }
-//导航栏切换页面
+//导航栏切换
 function togglePage() {
     var obj = $(".blogNav_item");
     obj.click(function (e) {
@@ -40,10 +52,10 @@ function togglePage() {
         $(this).addClass("active");
     });
 }
-//分页条
+//计算分页条相关数据
 function paging(target_Index) {
     var pageSize = 5; //分页条展示5个页码
-    var allIndex = 10; //总页数
+    var allIndex = 9; //总页数
     var targetIndex = target_Index || 1; //当前页
     var i_beginIndex = 1; //分页条显示的开始索引
     var i_endIndex = pageSize; // 分页条显示的结束索引   
@@ -60,32 +72,54 @@ function paging(target_Index) {
         i_endIndex = i_beginIndex + pageSize - 1; //根据开始索引,求出结束索引
     }
     var obj = $(".pagingDiv>.pageItem");
-    var begin = i_beginIndex;
+    obj.removeClass("active");
     for (var i = i_beginIndex; i <= i_endIndex; i++) {
-        if(i==targetIndex){
-            obj.removeClass("active");
-            $(obj[i-1]).addClass("active");
-        }else{
-            $(obj[i-1]).data("index", begin);
-            $(obj[i-1]).html(begin);
-        }
-        begin++;
-       /*  switch (i) {
-            case 0:
-            case len - 1:
-                $(obj[i]).data("index", i + 1);
-                break; 
-            case 1:
-                $(obj[i]).data("index", targetIndex - 1 >= 1 ? targetIndex - 1 : 1);
+        switch (i) {
+            case i_beginIndex:
+                $(obj[0]).text(i_beginIndex);
+                if(i==targetIndex){
+                    $(obj[0]).addClass("active");
+                } 
                 break;
-            case len - 2:
-                $(obj[i]).data("index", targetIndex + 1 <= allIndex ? targetIndex + 1 : allIndex);
+            case i_endIndex:
+                $(obj[4]).text(i_endIndex);
+                if(i==targetIndex){
+                    $(obj[4]).addClass("active");
+                } 
                 break;
             default:
-                $(obj[i]).data("index", begin);
-                $(obj[i]).text(begin);
-                begin++;
-        } */
+                var mIndex = i_endIndex - Math.floor(pageSize / 2);
+                if (i < mIndex) {
+                    $(obj[1]).text(i);
+                    if(i==targetIndex){
+                        $(obj[1]).addClass("active");
+                    } 
+                } else if (i == mIndex) {
+                    $(obj[2]).text(i);
+                    if(i==targetIndex){
+                        $(obj[2]).addClass("active");
+                    } 
+                } else {
+                    $(obj[3]).text(i);
+                    if(i==targetIndex){
+                        $(obj[3]).addClass("active");
+                    } 
+                }
+        }
     }
+}
+function reSize(){
+    var circleImg = $('.circleImg');
+    var circleShowImg=$("#circleShowImg");
+    var circleImgs=$(".circleImgs");
+    var width=$(window).width();
+    circleShowImg.css("width",width);
+    circleImg.css("width",width);
+    circleImgs.css("width",width*5);
+}
+//轮播
+function carousel(){
     
 }
+
+ 
