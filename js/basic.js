@@ -1,5 +1,11 @@
-
+/* $(function () {
+    var circleShowImg = $('#circleShowImg');
+    
+}) */
 $(document).ready(function () {
+    /* $("p").on("click",function(){
+        alert("段落被点击了。");
+      }); */
     reSize();
     $('.container').load('./blog_main.html');
     togglePage();
@@ -114,12 +120,110 @@ function reSize(){
     var circleImgs=$(".circleImgs");
     var width=$(window).width();
     circleShowImg.css("width",width);
-    circleImg.css("width",width);
     circleImgs.css("width",width*5);
+   /*  circleImg.each(function (index){
+        $(this).css("left",width*index);
+    }); */
+     circleImg.css("width",width);
 }
 //轮播
 function carousel(){
-    
+    /* var circleImgArray = $('.circleImg');
+    circleImgArray.each */
+    /* $('.circleImg').each(function (){
+        $(this).css("left")
+    }); */
 }
 
- 
+ /*    $(function () {
+        var circleShowImg = $('#circleShowImg');
+        var circleImgs = $('.circleImgs');
+        var points = $('.point span');
+        var prev = $('.pre .angle');
+        var next = $('.next .angle');
+        var index = 1;
+        var len = 5;
+        var interval = 3000;
+        var timer;
+
+
+        function animate (offset) {
+            var left = parseInt(circleImgs.css('left')) + offset;
+            if (offset>0) {
+                offset = '+=' + offset;
+            }
+            else {
+                offset = '-=' + Math.abs(offset);
+            }
+            circleImgs.animate({'left': offset}, 300, function () {
+                if(left > -200){
+                    circleImgs.css('left', -600 * len);
+                }
+                if(left < (-600 * len)) {
+                    circleImgs.css('left', -600);
+                }
+            });
+        }
+
+        function showButton() {
+            points.eq(index-1).addClass('on').siblings().removeClass('on');
+        }
+
+        function play() {
+            timer = setTimeout(function () {
+                next.trigger('click');
+                play();
+            }, interval); 
+        }
+        function stop() {
+            clearTimeout(timer);
+        }
+
+        next.bind('click', function () {
+            if (circleImgs.is(':animated')) {
+                return;
+            }
+            if (index == 5) {
+                index = 1;
+            }
+            else {
+                index += 1;
+            }
+            animate(-600);
+            showButton();
+        });
+
+        prev.bind('click', function () {
+            if (circleImgs.is(':animated')) {
+                return;
+            }
+            if (index == 1) {
+                index = 5;
+            }
+            else {
+                index -= 1;
+            }
+            animate(600);
+            showButton();
+        });
+
+        points.each(function () {
+             $(this).bind('click', function () {
+                 if (circleImgs.is(':animated') || $(this).attr('class')=='on') {
+                     return;
+                 }
+                 var myIndex = parseInt($(this).attr('index'));
+                 var offset = -600 * (myIndex - index);
+
+                 animate(offset);
+                 index = myIndex;
+                 showButton();
+             })
+        });
+
+        circleShowImg.hover(stop, play);
+
+        play();
+
+    }); */
+

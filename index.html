@@ -9,9 +9,9 @@
 	<META HTTP-EQUIV="expires" CONTENT="0">
 
 	<link rel="shortcut icon" href="img/favicon.ico">
-	<link rel="stylesheet" type="text/css" href="./css/basic.css" />
+	<link rel="stylesheet" type="text/css" href="css/basic.css" />
 	<link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-
+	<link rel="stylesheet" href="css/hover-min.css">
 	<title>时光流年</title>
 </head>
 
@@ -31,10 +31,14 @@
 	</header>
 	<div id="circleShowImg">
 		<div class="circleImgs">
+		<!-- 	<img class="circleImg" src="img/circleImg-1.jpg" alt="轮播图1" />
+			<img class="circleImg" src="img/circleImg-2.jpg" alt="轮播图2" />
+			<img class="circleImg" src="img/circleImg-3.jpg" alt="轮播图3" />
+			<img class="circleImg" src="img/circleImg-4.jpg" alt="轮播图4" /> -->
 			<img class="circleImg" src="https://s2.ax1x.com/2019/09/15/ncWBbF.jpg" alt="轮播图1" />
-			<!--<img class="circleImg" src="https://s2.ax1x.com/2019/09/15/nch66x.jpg" alt="轮播图2" />
+			<img class="circleImg" src="https://s2.ax1x.com/2019/09/15/nch66x.jpg" alt="轮播图2" />
 			<img class="circleImg" src="https://s2.ax1x.com/2019/09/15/nchspR.jpg" alt="轮播图3" />
-			<img class="circleImg" src="https://s2.ax1x.com/2019/09/15/nchy11.jpg" alt="轮播图4" />-->
+			<img class="circleImg" src="https://s2.ax1x.com/2019/09/15/nchy11.jpg" alt="轮播图4" />
 		</div>
 		<span class="pre angle" title="上一张"><i class="fa fa-angle-left"></i></span>
 		<span class="next angle" title="下一张"><i class="fa fa-angle-right"></i></span>
@@ -98,38 +102,37 @@
 					</div>
 				</li>
 				<li>
-					<div class="about">
-						<span class="title">关于博客</span>
+
+					<div class="imgShare">
+						<span class="title">图片分享</span>
 						<div class="text">
-							<span>时光流年是由张三建立，主要用于分享生活中的趣事及提升工作技能的一些知识。</span>
-							<img src="holder.js/100px70" alt="" />
-							<!-- <img style="width: 100%;height:70px;" src="img/logo.png" alt="" /> -->
+							<div class="imgShare_item">
+								<img src="holder.js/32px80" alt="">
+								<img src="holder.js/32px80" alt="">
+								<img src="holder.js/32px80" alt="">
+							</div>
+							<div class="imgShare_item">
+								<img src="holder.js/32px80" alt="">
+								<img src="holder.js/32px80" alt="">
+								<img src="holder.js/32px80" alt="">
+							</div>
 						</div>
 					</div>
-					<!-- <div class="imgShare">
-						<span class="title">关于博客</span>
-						<div class="text">
-							<span>时光流年是由张三建立，主要用于分享生活中的趣事及提升工作技能的一些知识。</span>
-							<img src="holder.js/250x70" alt="" />
-						</div>
-					</div> -->
 				</li>
 				<li>
-					<div class="about">
-						<span class="title">关于博客</span>
+					<div class="comment">
+						<span class="title">最新评论</span>
 						<div class="text">
-							<span>时光流年是由张三建立，主要用于分享生活中的趣事及提升工作技能的一些知识。</span>
-							<img src="holder.js/100px70" alt="" />
-							<!-- <img style="width: 100%;height:70px;" src="img/logo.png" alt="" /> -->
+							<i class="fa fa-comment" style="display: inline-block;padding: 0 10px 0 0;"></i>
+							<span
+								style="display: inline-block;width: 70%;vertical-align: text-top;line-height: 1.7;">顾杰义：<br />分享旅行的事很有趣，重要的是青春无限</span>
+						</div>
+						<div class="text">
+							<i class="fa fa-comment" style="display: inline-block;padding: 0 10px 0 0;"></i>
+							<span
+								style="display: inline-block;width: 70%;vertical-align: text-top;line-height: 1.7">顾杰义：<br />分享旅行的事很有趣，重要的是青春无限</span>
 						</div>
 					</div>
-					<!-- <div class="comment">
-						<span class="title">关于博客</span>
-						<div class="text">
-							<span>时光流年是由张三建立，主要用于分享生活中的趣事及提升工作技能的一些知识。</span>
-							<img src="holder.js/250x70" alt="" />
-						</div>
-					</div> -->
 				</li>
 			</ul>
 		</div>
@@ -137,10 +140,9 @@
 			Copyright 2019 ZhangSan
 		</div>
 	</footer>
-	<script src="https://cdn.bootcss.com/jquery/1.12.1/jquery.min.js"></script>
-	<script src="https://cdn.bootcss.com/holder/2.9.6/holder.js"></script>
-	<!-- <script src="js/jquery.min.js"></script> -->
-	<!-- <script src="js/holder.min.js"></script> -->
+	<script src="js/jquery.min.js"></script>
+	<script src="js/holder.min.js"></script>
+	<script src="js/jquery.lazyload.min.js"></script>
 	<script src="js/basic.js"></script>
 </body>
 

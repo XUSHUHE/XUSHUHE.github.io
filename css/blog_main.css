@@ -8,7 +8,7 @@
     list-style: none;
     float: left;
     width: 21%;
-    margin: 0 2%;
+    margin: 2% 2%;
 }
 
 .showBlog>ul>li {
@@ -21,4 +21,6 @@
 .blog_item {
     background: white;
     text-align: center;
+    width: 100%;
+    height: 100%;
 }

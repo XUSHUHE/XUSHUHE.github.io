@@ -5,6 +5,7 @@
 
 body {
 	background: rgb(240, 240, 240);
+	/* overflow-x:hidden; */
 }
 
 header {
@@ -150,7 +151,7 @@ a.blogNav_item.active {
 /* -------------------------------- */
 .container {
 	position: relative;
-	top: 10%;
+	top: 7%;
 	margin: 0 auto;
 	max-width: 1280px;
 }
@@ -160,13 +161,13 @@ a.blogNav_item.active {
 	position: relative;
 	display: inline-block;
 	left: 50%;
-	top: 130px;
+	top: 100px;
 	transform: translateX(-50%);
 	font-size: 0;
 	border: solid #aaa 1px;
 	border-radius: 10px;
 	background: white;
-	margin: -2px 0;
+	margin: -1px 0;
 	/* !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! */
 }
 
@@ -200,17 +201,19 @@ span.active {
 
 footer {
 	position: relative;
-	top: 25%;
+	top: 20%;
 	width: 100%;
-	height: 45%;
+	/* height: 45%; */
 	color: #ccc;
 	background: rgb(33, 36, 41);
+	overflow: visible;
 }
 
 .footerDiv {
 	margin: 0 auto;
 	max-width: 1280px;
-	height: 93%;
+	padding-bottom: 3%;
+	/* height: 93%; */
 }
 
 .footerDiv>ul {
@@ -224,7 +227,7 @@ footer {
 }
 
 .footerDiv>ul>li>div {
-	height: 93%;
+	/* height: 93%; */
 	padding: 30px 30px 0px 30px;
 	text-align: left;
 }
@@ -242,11 +245,15 @@ footer {
 	margin-top: 20%;
 }
 
+.imgShare_item>img{
+	display: inline-block!important;
+}
+
 footer>.copDiv {
 	position: relative;
 	bottom: 0;
 	/* height: 30px; */
-	height: 7%;
+	/* height: 7%; */
 	font-size: 14px;
 	background: rgb(24, 25, 29);
 	text-align: center;
