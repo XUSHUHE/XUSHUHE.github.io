@@ -5,7 +5,6 @@
 
 body {
 	background: rgb(240, 240, 240);
-	/* overflow-x:hidden; */
 }
 
 header {
@@ -53,34 +52,44 @@ header {
 }
 
 /* -------------------------------- */
-
+.lunbo{
+	width: 100%;
+	background: rgb(24, 25, 29);
+}
 #circleShowImg {
-	width: 1920px;
+	width: 100%;
 	color: #eee;
 	position: relative;
 	overflow: hidden;
+	margin: 0 auto;
 }
 
 #circleShowImg:hover .angle {
 	display: block;
 }
-.circleImgs{
-	width:9600px;
-	display: inline-block;
+
+.circleImgs {
+	width: 500%;
+	font-size: 0px;
+	position: relative;
+	left: -100%;
 }
-.circleImgs>.circleImg{
-	float: left;
+
+.circleImgs>.circleImg {
+	width: 20%;
 }
+
 .angle {
 	cursor: pointer;
 	display: none;
 	position: absolute;
 	z-index: 3;
-	font-size: 57px;
 	top: 37%;
 	background-color: rgba(150, 150, 150, 0.3)
 }
-
+.angle>.iconfont{
+	font-size: 50px;
+}
 .angle:hover {
 	background-color: rgba(150, 150, 150, 0.7)
 }
@@ -109,6 +118,7 @@ header {
 	display: inline-block;
 	width: 20%;
 }
+
 .navDiv {
 	margin: 0 auto;
 	max-width: 1280px;
@@ -151,7 +161,7 @@ a.blogNav_item.active {
 /* -------------------------------- */
 .container {
 	position: relative;
-	top: 7%;
+	top: 10%;
 	margin: 0 auto;
 	max-width: 1280px;
 }
@@ -203,17 +213,15 @@ footer {
 	position: relative;
 	top: 20%;
 	width: 100%;
-	/* height: 45%; */
 	color: #ccc;
 	background: rgb(33, 36, 41);
-	overflow: visible;
+	/* overflow: visible; */
 }
 
 .footerDiv {
 	margin: 0 auto;
 	max-width: 1280px;
 	padding-bottom: 3%;
-	/* height: 93%; */
 }
 
 .footerDiv>ul {
@@ -227,7 +235,6 @@ footer {
 }
 
 .footerDiv>ul>li>div {
-	/* height: 93%; */
 	padding: 30px 30px 0px 30px;
 	text-align: left;
 }
@@ -245,15 +252,13 @@ footer {
 	margin-top: 20%;
 }
 
-.imgShare_item>img{
-	display: inline-block!important;
+.imgShare_item>img {
+	display: inline-block !important;
 }
 
 footer>.copDiv {
 	position: relative;
 	bottom: 0;
-	/* height: 30px; */
-	/* height: 7%; */
 	font-size: 14px;
 	background: rgb(24, 25, 29);
 	text-align: center;

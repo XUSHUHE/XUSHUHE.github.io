@@ -10,36 +10,50 @@ $(document).ready(function () {
     $('.container').load('./blog_main.html');
     togglePage();
     toggleIndex();
-    $(window).resize(function() {
-        reSize();
-    });
     carousel();
+    var mycarousel = play();
+    $("#circleShowImg").hover(function () {
+        clearInterval(mycarousel);
+    }, function () {
+        mycarousel = play();
+    });
 })
+//启动自动轮播
+function play() {
+    var timer = setInterval(function () {
+        $('.next').trigger('click');
+    }, 3300);
+    return timer;
+}
+//设置body最小宽度
+function reSize() {
+    var width = parseInt(screen.width) - 17;
+    $("#circleShowImg").css("width", width);
+    $("body").css("min-width", width);
+}
 //分页
 function toggleIndex() {
-    $(".pagingDiv span").bind("selectstart",function(){return false;});  
+    $(".pagingDiv span").bind("selectstart", function () {
+        return false;
+    });
     $(".pagingDiv .pageItem").click(function (e) {
         paging($(this).text());
     });
     $(".first").click(function (e) {
-         paging(1);
+        paging(1);
     });
     $(".last").click(function (e) {
-         paging(9);
+        paging(9);
     });
-    $(".pre").click(function (e) {
-        var t1=parseInt($(".pageItem.active").text())-1;
-        /*  var t2=t1>=1?t1:1;
-        paging(t2);  */
-        if(t1>=1){
+    $(".prePage").click(function (e) {
+        var t1 = parseInt($(".pageItem.active").text()) - 1;
+        if (t1 >= 1) {
             paging(t1);
         }
     });
-    $(".next").click(function (e) {
-        var t1=parseInt($(".pageItem.active").text())+1;
-        /* var t2=t1<=9?t1:9;
-        paging(t2); */
-        if(t1<=9){
+    $(".nextPage").click(function (e) {
+        var t1 = parseInt($(".pageItem.active").text()) + 1;
+        if (t1 <= 9) {
             paging(t1);
         }
     });
@@ -83,147 +97,103 @@ function paging(target_Index) {
         switch (i) {
             case i_beginIndex:
                 $(obj[0]).text(i_beginIndex);
-                if(i==targetIndex){
+                if (i == targetIndex) {
                     $(obj[0]).addClass("active");
-                } 
+                }
                 break;
             case i_endIndex:
                 $(obj[4]).text(i_endIndex);
-                if(i==targetIndex){
+                if (i == targetIndex) {
                     $(obj[4]).addClass("active");
-                } 
+                }
                 break;
             default:
                 var mIndex = i_endIndex - Math.floor(pageSize / 2);
                 if (i < mIndex) {
                     $(obj[1]).text(i);
-                    if(i==targetIndex){
+                    if (i == targetIndex) {
                         $(obj[1]).addClass("active");
-                    } 
+                    }
                 } else if (i == mIndex) {
                     $(obj[2]).text(i);
-                    if(i==targetIndex){
+                    if (i == targetIndex) {
                         $(obj[2]).addClass("active");
-                    } 
+                    }
                 } else {
                     $(obj[3]).text(i);
-                    if(i==targetIndex){
+                    if (i == targetIndex) {
                         $(obj[3]).addClass("active");
-                    } 
+                    }
                 }
         }
     }
 }
-function reSize(){
-    var circleImg = $('.circleImg');
-    var circleShowImg=$("#circleShowImg");
-    var circleImgs=$(".circleImgs");
-    var width=$(window).width();
-    circleShowImg.css("width",width);
-    circleImgs.css("width",width*5);
-   /*  circleImg.each(function (index){
-        $(this).css("left",width*index);
-    }); */
-     circleImg.css("width",width);
-}
+
 //轮播
-function carousel(){
-    /* var circleImgArray = $('.circleImg');
-    circleImgArray.each */
-    /* $('.circleImg').each(function (){
-        $(this).css("left")
-    }); */
+function carousel() {
+    var index = 1;
+    var circleImgs = $('.circleImgs');
+    var width = parseInt($(".circleImg").css("width")); //单个图片大小
+    //轮播动画
+    function animate(offset) {
+        var circleImgs = $(".circleImgs");
+        var oldLeft = parseInt(circleImgs.css("left"));
+        var newLeft = oldLeft + offset;
+        circleImgs.animate({
+            'left': newLeft + ""
+        }, 300, function () {
+            //向前
+            if (newLeft >= 0 && offset > 0) {
+                circleImgs.css("left", -offset * 3);
+            }
+            //向后
+            if (newLeft <= offset * 4 && offset < 0) {
+                circleImgs.css("left", offset);
+            }
+        });
+    }
+    //轮播指示器
+    function showPoint() {
+        $('.icon-yuanhuan').removeClass('icon-yuanhuan').addClass('icon-yuandianda');
+        $('.point>span>i').eq(index - 1).removeClass('icon-yuandianda').addClass('icon-yuanhuan');
+    }
+
+    $('.pre').click(function () {
+        if (circleImgs.is(':animated')) {
+            return;
+        }
+        if (index == 1) {
+            index = 3;
+        } else {
+            index -= 1;
+        }
+        animate(width);
+        showPoint();
+    });
+
+    $('.next').click(function () {
+        if (circleImgs.is(':animated')) {
+            return;
+        }
+        if (index == 3) {
+            index = 1;
+        } else {
+            index += 1;
+        }
+        animate(-width);
+        showPoint();
+    });
+
+    $('.point span').each(function () {
+        $(this).bind('click', function () {
+            if (circleImgs.is(':animated') || $(this).hasClass('icon-yuanhuan') == true) {
+                return;
+            }
+            var clickIndex = parseInt($(this).data('index'));
+            var offset = width * (clickIndex - index);
+            animate(-offset);
+            index = clickIndex;
+            showPoint();
+        })
+    });
 }
-
- /*    $(function () {
-        var circleShowImg = $('#circleShowImg');
-        var circleImgs = $('.circleImgs');
-        var points = $('.point span');
-        var prev = $('.pre .angle');
-        var next = $('.next .angle');
-        var index = 1;
-        var len = 5;
-        var interval = 3000;
-        var timer;
-
-
-        function animate (offset) {
-            var left = parseInt(circleImgs.css('left')) + offset;
-            if (offset>0) {
-                offset = '+=' + offset;
-            }
-            else {
-                offset = '-=' + Math.abs(offset);
-            }
-            circleImgs.animate({'left': offset}, 300, function () {
-                if(left > -200){
-                    circleImgs.css('left', -600 * len);
-                }
-                if(left < (-600 * len)) {
-                    circleImgs.css('left', -600);
-                }
-            });
-        }
-
-        function showButton() {
-            points.eq(index-1).addClass('on').siblings().removeClass('on');
-        }
-
-        function play() {
-            timer = setTimeout(function () {
-                next.trigger('click');
-                play();
-            }, interval); 
-        }
-        function stop() {
-            clearTimeout(timer);
-        }
-
-        next.bind('click', function () {
-            if (circleImgs.is(':animated')) {
-                return;
-            }
-            if (index == 5) {
-                index = 1;
-            }
-            else {
-                index += 1;
-            }
-            animate(-600);
-            showButton();
-        });
-
-        prev.bind('click', function () {
-            if (circleImgs.is(':animated')) {
-                return;
-            }
-            if (index == 1) {
-                index = 5;
-            }
-            else {
-                index -= 1;
-            }
-            animate(600);
-            showButton();
-        });
-
-        points.each(function () {
-             $(this).bind('click', function () {
-                 if (circleImgs.is(':animated') || $(this).attr('class')=='on') {
-                     return;
-                 }
-                 var myIndex = parseInt($(this).attr('index'));
-                 var offset = -600 * (myIndex - index);
-
-                 animate(offset);
-                 index = myIndex;
-                 showButton();
-             })
-        });
-
-        circleShowImg.hover(stop, play);
-
-        play();
-
-    }); */
-
