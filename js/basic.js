@@ -1,7 +1,3 @@
-/* $(function () {
-    var circleShowImg = $('#circleShowImg');
-    
-}) */
 $(document).ready(function () {
     /* $("p").on("click",function(){
         alert("段落被点击了。");
