@@ -2,258 +2,366 @@
 
 <head>
 	<meta charset="utf-8" />
-
-	<META HTTP-EQUIV="pragma" CONTENT="no-cache">
-	<META HTTP-EQUIV="Cache-Control" CONTENT="no-store, must-revalidate">
-	<META HTTP-EQUIV="expires" CONTENT="Wed, 26 Feb 1997 08:21:57 GMT">
-	<META HTTP-EQUIV="expires" CONTENT="0">
-
 	<link rel="shortcut icon" href="img/favicon.ico">
 	<link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 	<link href="css/iconfont.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/hover-min.css">
-    <style>
-        .containerDiv{
-            width: 1440px;
-            margin: 0 auto;
-            padding: 5% 0px;
-            display: inline-block;
-        }
-        article{
-            width: 70%;
-            padding:0 5%;
-            float: left;
-        } 
-        .biaoti{
-            text-align: center;
-            font-size:20px;
-            font-weight: bold;margin-bottom:7%;
-        }
-        article p{
-            text-indent: 2em;
-            font-size: 17px;
-            line-height: 1.3;
-            margin-bottom: 2%;
-        }             
-        aside{
-            width: 17%;
-            height: 100%;
-            float: right;
-            border-left:solid 1px gray; 
-            padding: 0 1%;
-        }  
-        * {
-	margin: 0;
-	padding: 0;
-}
+	<link rel="stylesheet" href="css/hover-min.css">
+	<style>
+		.containerDiv {
+			width: 1440px;
+			margin: 0 auto;
+			padding: 5% 0px 0px 0px;
+			display: inline-block;
+		}
 
-body {
-	background: rgb(240, 240, 240);
-}
+		article {
+			width: 63%;
+			margin: 0 0 0 5%;
+			padding: 3% 5% 0;
+			float: left;
+			background: white;
+		}
 
-header {
-	width: 100%;
-	background: #333;
-	color: #eee;
-}
+		.showPingLun {
+			text-align: left;
+			font-size: 17px;
+			margin-top: 20px;
+		}
 
-#headerDiv {
-	margin: 0 auto;
-	max-width: 1280px;
-	height: 70px;
-}
+		.masterSay,
+		.otherSay {
+			display: inline-block;
+			line-height: 30px;
+		}
 
-#logo {
-	float: left;
-	height: 70px;
-}
+		span.otherSay {
+			border-top: none;
+			line-height: 2;
+		}
 
-.link {
-	float: right;
-	width: 70%;
-	height: 70px;
-}
+		.biaoti {
+			text-align: center;
+			font-size: 20px;
+			font-weight: bold;
+			margin-bottom: 7%;
+		}
 
-.link>ul {
-	list-style: none;
-	line-height: 70px;
-	font-size: 17px;
-}
+		article p {
+			text-indent: 2em;
+			font-size: 17px;
+			line-height: 1.3;
+			margin-bottom: 2%;
+		}
 
-.link>ul>li {
-	float: left;
-	width: 10%;
-	text-align: center;
-}
+		aside {
+			box-sizing: border-box;
+			width: 17%;
+			float: right;
+			/* border-left: solid 1px gray; */
+			padding: 1% 1% 0 1%;
+			background: white;
+		}
 
-.link>ul>li>span {
-	cursor: pointer;
-}
+		* {
+			margin: 0;
+			padding: 0;
+		}
 
-#searchInfo {
-	width: 70%;
-	text-align: right;
-}
+		body {
+			background: rgb(240, 240, 240);
+		}
 
-/* -------------------------------- */
-.lunbo{
-	width: 100%;
-	background: rgb(24, 25, 29);
-}
-#circleShowImg {
-	width: 100%;
-	color: #eee;
-	position: relative;
-	overflow: hidden;
-	margin: 0 auto;
-}
+		header {
+			width: 100%;
+			background: #333;
+			color: #eee;
+		}
 
-#circleShowImg:hover .angle {
-	display: block;
-}
+		#headerDiv {
+			margin: 0 auto;
+			max-width: 1280px;
+			height: 70px;
+		}
 
-.circleImgs {
-	width: 500%;
-	font-size: 0px;
-	position: relative;
-	left: -100%;
-}
+		#logo {
+			float: left;
+			height: 70px;
+		}
 
-.circleImgs>.circleImg {
-	width: 20%;
-}
+		input {
+			background: #ccc;
+			font-size: 16px;
+			border: 1px solid transparent;
+			outline: none;
+			padding: 6px 40px 6px 12px;
+			border-radius: 17px;
+		}
 
-.angle {
-	cursor: pointer;
-	display: none;
-	position: absolute;
-	z-index: 3;
-	top: 37%;
-	background-color: rgba(150, 150, 150, 0.3)
-}
-.angle>.iconfont{
-	font-size: 50px;
-}
-.angle:hover {
-	background-color: rgba(150, 150, 150, 0.7)
-}
+		input:hover,
+		input:focus {
+			background: white;
+			border: 1px solid #f80;
+		}
 
-.pre {
-	left: 5%;
-}
+		input:hover+span,
+		input:focus+span {
+			color: #f80 !important;
+		}
 
-.next {
-	right: 5%;
-}
+		input::-webkit-calendar-picker-indicator {
+			display: none;
+			-webkit-appearance: none;
+		}
 
-.point {
-	cursor: pointer;
-	width: 7%;
-	font-size: 15px;
-	color: #fffa;
-	text-align: center;
-	position: absolute;
-	bottom: 5%;
-	left: 50%;
-	transform: translateX(-50%);
-}
+		.search {
+			cursor: pointer;
+			line-height: 16px;
+			color: gray;
+			position: absolute;
+			right: 2%;
+			top: 50%;
+			transform: translateY(-50%);
+		}
 
-.point>span {
-	display: inline-block;
-	width: 20%;
-}
+		.search:hover {
+			color: #f80;
+		}
 
-/* -------------------------------- */
+		.link {
+			float: right;
+			width: 70%;
+			height: 70px;
+		}
 
-.footerDiv {
-	margin: 0 auto;
-	max-width: 1280px;
-	padding-bottom: 3%;
-}
+		.link>ul {
+			list-style: none;
+			font-size: 17px;
+		}
 
-.footerDiv>ul {
-	list-style: none;
-	display: inline-block;
-}
+		.link>ul>li {
+			line-height: 70px;
+			float: left;
+			width: 10%;
+			text-align: center;
+		}
 
-.footerDiv>ul>li {
-	float: left;
-	width: 25%;
-}
+		span.link_item {
+			cursor: pointer;
+		}
 
-.footerDiv>ul>li>div {
-	padding: 30px 30px 0px 30px;
-	text-align: left;
-}
+		span.link_item:hover {
+			color: #f80;
+		}
 
-.title {
-	font-size: 18px;
-}
+		#searchInfo {
+			width: 75%;
+			text-align: right;
+			position: relative;
+			margin-right: 5%;
+		}
 
-.text {
-	margin-top: 30px;
-	font-size: 14px;
-}
+		/* -------------------------------- */
+		.lunbo {
+			width: 100%;
+			background: rgb(24, 25, 29);
+		}
 
-.about>div>img {
-	margin-top: 20%;
-}
+		#circleShowImg {
+			width: 100%;
+			color: #eee;
+			position: relative;
+			overflow: hidden;
+			margin: 0 auto;
+		}
 
-.imgShare_item>img {
-	display: inline-block !important;
-}
+		#circleShowImg:hover .angle {
+			display: block;
+		}
 
-.footerDiv {
-	margin: 0 auto;
-	max-width: 1280px;
-	padding-bottom: 3%;
-}
+		.circleImgs {
+			width: 500%;
+			font-size: 0px;
+			position: relative;
+			left: -100%;
+		}
 
-.footerDiv>ul {
-	list-style: none;
-	display: inline-block;
-}
+		.circleImgs>.circleImg {
+			width: 20%;
+		}
 
-.footerDiv>ul>li {
-	float: left;
-	width: 25%;
-}
+		.angle {
+			cursor: pointer;
+			display: none;
+			position: absolute;
+			z-index: 3;
+			top: 37%;
+			background-color: rgba(150, 150, 150, 0.3)
+		}
 
-.footerDiv>ul>li>div {
-	padding: 30px 30px 0px 30px;
-	text-align: left;
-}
+		.angle>.iconfont {
+			font-size: 50px;
+		}
 
-.title {
-	font-size: 18px;
-}
+		.angle:hover {
+			background-color: rgba(150, 150, 150, 0.7)
+		}
 
-.text {
-	margin-top: 30px;
-	font-size: 14px;
-}
+		.pre {
+			left: 5%;
+		}
 
-.about>div>img {
-	margin-top: 20%;
-}
+		.next {
+			right: 5%;
+		}
 
-.imgShare_item>img {
-	display: inline-block !important;
-}
-footer {
-	width: 100%;
-	color: #ccc;
-	background: rgb(33, 36, 41);
-}
-footer>.copDiv {
-	position: relative;
-	bottom: 0;
-	font-size: 14px;
-	background: rgb(24, 25, 29);
-	text-align: center;
-	color: #ccc;
-}
-    </style>
+		.point {
+			cursor: pointer;
+			width: 7%;
+			font-size: 15px;
+			color: #fffa;
+			text-align: center;
+			position: absolute;
+			bottom: 5%;
+			left: 50%;
+			transform: translateX(-50%);
+		}
+
+		.point>span {
+			display: inline-block;
+			width: 20%;
+		}
+
+		/* -------------------------------- */
+
+		footer {
+			position: relative;
+			top: 10%;
+			width: 100%;
+			color: #ccc;
+			background: rgb(33, 36, 41);
+		}
+
+		.footerDiv {
+			margin: 0 auto;
+			max-width: 1280px;
+			padding-bottom: 3%;
+		}
+
+		.footerDiv>ul {
+			list-style: none;
+			display: inline-block;
+		}
+
+		.footerDiv>ul>li {
+			float: left;
+			width: 25%;
+		}
+
+		.footerDiv>ul>li>div {
+			padding: 30px 30px 0px 30px;
+			text-align: left;
+		}
+
+		.sign {
+			display: block;
+			width: 100%;
+			height: 70px;
+		}
+
+		.title {
+			font-size: 18px;
+		}
+
+		.text {
+			margin-top: 30px;
+			font-size: 14px;
+		}
+
+		.about>div>img {
+			margin-top: 20%;
+		}
+
+		.imgShare_item>img {
+			display: inline-block !important;
+			width: 32%;
+			height: 80;
+		}
+
+		footer>.copDiv {
+			position: relative;
+			bottom: 0;
+			font-size: 14px;
+			background: rgb(24, 25, 29);
+			text-align: center;
+			color: #ccc;
+		}
+
+		#say {
+			background: transparent;
+			border: 1px solid rgb(252, 157, 154);
+		}
+
+		.pinglun>p {
+			text-align: right;
+		}
+
+		.text1>img {
+			display: inline-block;
+			padding: 0 10px 0 0;
+			vertical-align: top;
+		}
+
+		.text1>.name {
+			display: inline-block;
+			vertical-align: text-top;
+			line-height: 1.7;
+		}
+
+		.name>i {
+			float: right;
+		}
+
+		.text1 {
+			border-bottom: dashed 1px #ccc;
+			padding: 3% 5%;
+			line-height: 2;
+		}
+
+		.text1:last-child {
+			border: none;
+		}
+
+		.text1>div {
+			display: inline-block;
+			width: 90%;
+		}
+
+		.navList {
+			margin-top: 10%;
+		}
+
+		.navUl {
+			padding: 0 5%;
+			margin-top: 10%;
+			list-style: none;
+		}
+
+		.navUl>li {
+			display: block;
+			width: 100%;
+			font-size: 17px;
+			line-height: 2;
+			border-bottom: solid 1px #ccc;
+		}
+
+		i:hover {
+			cursor: pointer;
+		}
+
+		i.dianzan1 {
+			color: red;
+		}
+	</style>
 	<title>最刺激的历险记</title>
 </head>
 
@@ -263,10 +371,19 @@ footer>.copDiv {
 			<img id="logo" src="img/logo.png" />
 			<nav class="link">
 				<ul>
-					<li id="searchInfo"><input type="text" placeholder="输入关键字" /></li>
-					<li class="search link_item"><span title="搜索"><i class="iconfont icon-sousuo"></i></span></li>
-					<li class="share link_item"><span title="分享"><i class="iconfont icon-fenxiang"></i></span></li>
-					<li class="login link_item"><span title="登录"><i class="iconfont icon-yonghu"></i></span></li>
+					<li id="searchInfo">
+						<input type="text" placeholder="如何“抄”越自己" list="items" />
+						<datalist id="items">
+							<option value="如何“抄”越自己">
+							<option value="最浪漫的旅行记">
+							<option value="最刺激的历险记">
+						</datalist>
+						<span class="search" title="搜索">
+							<i class="iconfont icon-sousuo"></i>
+						</span>
+					</li>
+					<li><span title="分享" class="share link_item"><i class="iconfont icon-fenxiang"></i></span></li>
+					<li><span title="登录" class="login link_item"><i class="iconfont icon-yonghu"></i></span></li>
 				</ul>
 			</nav>
 		</div>
@@ -289,47 +406,104 @@ footer>.copDiv {
 			</div>
 		</div>
 	</div>
-	<!-- <div class="navDiv">
-		<nav class="blogNav">
-			<ul>
-				<li><a href="" id="blog_main" class="blogNav_item active">博客首页</a></li>
-				<li><a href="" id="blog_dir" class="blogNav_item">博文目录</a></li>
-				<li><a href="" id="img_share" class="blogNav_item">图片分享</a></li>
-				<li><a href="" id="my_info" class="blogNav_item">我的信息</a></li>
-			</ul>
-		</nav>
-	</div> -->
+
 	<div class="containerDiv">
-        <article>
-                <font color="#000000">
-                        <p class="biaoti">朱自清《背影》原文</p>
-                        <p >我与父亲不相见已二年余了，我最不能忘记的是他的背影。</p>
-                        <p >那年冬天，祖母死了，父亲的差使也交卸了，正是祸不单行的日子。我从北京到徐州打算跟着父亲奔丧回家。到徐州见着父亲，看见满院狼藉的东西，又想起祖母，不禁簌簌地流下眼泪。父亲说：“事已如此，不必难过，好在天无绝人之路！”</p>
-                        <p >回家变卖典质，父亲还了亏空；又借钱办了丧事。这些日子，家中光景很是惨淡，一半因为丧事，一半因为父亲赋闲。丧事完毕，父亲要到南京谋事，我也要回北京念书，我们便同行。</p>
-                        <p >到南京时，有朋友约去游逛，勾留了一日；第二日上午便须渡江到浦口，下午上车北去。父亲因为事忙，本已说定不送我，叫旅馆里一个熟识的茶房陪我同去。他再三嘱咐茶房，甚是仔细。但他终于不放心，怕茶房不妥帖；颇踌躇了一会。其实我那年已二十岁，北京已来往过两三次，是没有什么要紧的了。他踌躇了一会，终于决定还是自己送我去。我再三劝他不必去；他只说：“不要紧，他们去不好！”</p>
-                        <p >我们过了江，进了车站。我买票，他忙着照看行李。行李太多了，得向脚夫行些小费才可过去。他便又忙着和他们讲价钱。我那时真是聪明过分，总觉他说话不大漂亮，非自己插嘴不可，但他终于讲定了价钱；就送我上车。他给我拣定了靠车门的一张椅子；我将他给我做的紫毛大衣铺好座位。他嘱我路上小心，夜里要警醒些，不要受凉。又嘱托茶房好好照应我。我心里暗笑他的迂；他们只认得钱，托他们只是白托！而且我这样大年纪的人，难道还不能料理自己么？唉，我现在想想，那时真是太聪明了！</p>
-                        <p >我说道：“爸爸，你走吧。”他往车外看了看说：“我买几个橘子去。你就在此地，不要走动。”我看那边月台的栅栏外有几个卖东西的等着顾客。走到那边月台，须穿过铁道，须跳下去又爬上去。父亲是一个胖子，走过去自然要费事些。我本来要去的，他不肯，只好让他去。我看见他戴着黑布小帽，穿着黑布大马褂，深青布棉袍，蹒跚地走到铁道边，慢慢探身下去，尚不大难。可是他穿过铁道，要爬上那边月台，就不容易了。他用两手攀着上面，两脚再向上缩；他肥胖的身子向左微倾，显出努力的样子，这时我看见他的背影，我的泪很快地流下来了。我赶紧拭干了泪。怕他看见，也怕别人看见。我再向外看时，他已抱了朱红的桔子往回走了。过铁道时，他先将桔子散放在地上，自己慢慢爬下，再抱起桔子走。到这边时，我赶紧去搀他。他和我走到车上，将桔子一股脑儿放在我的皮大衣上。于是扑扑衣上的泥土，心里很轻松似的。过一会儿说：“我走了，到那边来信！”我望着他走出去。他走了几步，回过头看见我，说：“进去吧，里边没人。”等他的背影混入来来往往的人里，再找不着了，我便进来坐下，我的眼泪又来了。</p>
-                        <p >近几年来，父亲和我都是东奔西走，家中光景是一日不如一日。他少年出外谋生，独立支持，做了许多大事。哪知老境却如此颓唐！他触目伤怀，自然情不能自已。情郁于中，自然要发之于外；家庭琐屑便往往触他之怒。他待我渐渐不同往日。但最近两年不见，他终于忘却我的不好，只是惦记着我，惦记着我的儿子。我北来后，他写了一信给我，信中说道：“我身体平安，惟膀子疼痛厉害，举箸提笔，诸多不便，大约大去之期不远矣。”我读到此处，在晶莹的泪光中，又看见那肥胖的、青布棉袍黑布马褂的背影。唉！我不知何时再能与他相见！</p>
-                        </font>
+		<article>
+			<font color="#000000">
+				<p class="biaoti">朱自清《背影》原文</p>
+				<p>我与父亲不相见已二年余了，我最不能忘记的是他的背影。</p>
+				<p>那年冬天，祖母死了，父亲的差使也交卸了，正是祸不单行的日子。我从北京到徐州打算跟着父亲奔丧回家。到徐州见着父亲，看见满院狼藉的东西，又想起祖母，不禁簌簌地流下眼泪。父亲说：“事已如此，不必难过，好在天无绝人之路！”
+				</p>
+				<p>回家变卖典质，父亲还了亏空；又借钱办了丧事。这些日子，家中光景很是惨淡，一半因为丧事，一半因为父亲赋闲。丧事完毕，父亲要到南京谋事，我也要回北京念书，我们便同行。</p>
+				<p>到南京时，有朋友约去游逛，勾留了一日；第二日上午便须渡江到浦口，下午上车北去。父亲因为事忙，本已说定不送我，叫旅馆里一个熟识的茶房陪我同去。他再三嘱咐茶房，甚是仔细。但他终于不放心，怕茶房不妥帖；颇踌躇了一会。其实我那年已二十岁，北京已来往过两三次，是没有什么要紧的了。他踌躇了一会，终于决定还是自己送我去。我再三劝他不必去；他只说：“不要紧，他们去不好！”
+				</p>
+				<p>我们过了江，进了车站。我买票，他忙着照看行李。行李太多了，得向脚夫行些小费才可过去。他便又忙着和他们讲价钱。我那时真是聪明过分，总觉他说话不大漂亮，非自己插嘴不可，但他终于讲定了价钱；就送我上车。他给我拣定了靠车门的一张椅子；我将他给我做的紫毛大衣铺好座位。他嘱我路上小心，夜里要警醒些，不要受凉。又嘱托茶房好好照应我。我心里暗笑他的迂；他们只认得钱，托他们只是白托！而且我这样大年纪的人，难道还不能料理自己么？唉，我现在想想，那时真是太聪明了！
+				</p>
+			</font>
+			<div class="pinglun" style="margin-top:30px;">
+				<p><input type="text" placeholder="我也说一句..." id="say" /></p>
+				<div style="margin-top:20px ;overflow: hidden;font-size: 17px;line-height: 2;">
+					<div style="float: left;"> <span>留言（260）</span><span
+							style="padding:7px 0 7px 1em ;letter-spacing: 1em;background: rgb(242, 222, 223);cursor: pointer;">全部</span>
+					</div>
+					<div class="send" style="float: right;">
+						<span
+							style="user-select:none;padding:10px 0 10px 1em ;letter-spacing: 1em;background: rgb(242, 222, 223);position: relative;right: 0;cursor: pointer;">发送</span>
+					</div>
+				</div>
+			</div>
+			<div class="showPingLun" style="user-select:none;">
+				<div style="margin-top:3%;">
+					<div class="text1">
+						<img src="img/user.png"></img>
+						<div class="span1">
+							<span class="name"><span style="font-weight: bolder;">顾杰义</span><i
+									class="dianzan iconfont icon-dianzan"
+									style="line-height: 1;margin:8px 0;"></i></span><br>
+							<span class="onePinglun">分享旅行的事很有趣，重要的是青春无限</span>
+						</div>
+					</div>
 
+					<div class="text1">
+						<img src="img/user.png"></img>
+						<div>
+							<span class="name"><span style="font-weight: bolder;">顾杰义</span><i
+									class="dianzan iconfont icon-dianzan"
+									style="line-height: 1;margin:8px 0;"></i></span><br>
+							<span class="onePinglun">分享旅行的事很有趣，重要的是青春无限</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</article>
+		<aside>
+			<div>
+				<img src="img/blog_main_img2.jpg" width="100%" height="20%" alt="">
 
-        </article>
-        <aside>
-            <img src="holder.js/100px100p?text=下拉菜单&theme=vine" alt="">
-        </aside>
-		<!-- 内容区 -->
+				<div class="navList">
+					<div>
+						<p align="center">推荐阅读</p>
+						<ul class="navUl">
+							<li>
+								旅游趣事
+								<ul style="list-style: none;display: none;">
+									<li>最刺激的历险记</li>
+									<li>最刺激的历险记</li>
+									<li>最刺激的历险记</li>
+								</ul>
+							</li>
+
+							<li>学习资料<ul style="list-style: none;display: none;">
+									<li>最刺激的历险记</li>
+									<li>最刺激的历险记</li>
+									<li>最刺激的历险记</li>
+								</ul>
+							</li>
+							<li>分享图片
+							</li>
+							<li>生活调味剂
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div style="margin-top: 20%;">
+				<div class="navList">
+					<div>
+						<p align="center">博客分类</p>
+						<ul class="navUl">
+							<li>旅游趣事</li>
+							<li>学习资料</li>
+							<li>分享图片</li>
+							<li>生活小百科</li>
+							<li>喜欢的音乐</li>
+							<li>生活调味剂</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</aside>
 	</div>
-	<!-- <div class="pagingDiv">
-		<span class="first">首页</span>
-		<span class="pre">&lt;</span>
-		<span class="pageItem active">1</span>
-		<span class="pageItem">2</span>
-		<span class="pageItem">3</span>
-		<span class="pageItem">4</span>
-		<span class="pageItem">5</span>
-		<span class="next">&gt;</span>
-		<span class="last">尾页</span>
-	</div> -->
 	<footer>
 		<div class="footerDiv">
 			<ul>
@@ -338,8 +512,7 @@ footer>.copDiv {
 						<span class="title">关于博客</span>
 						<div class="text">
 							<span>时光流年是由张三建立，主要用于分享生活中的趣事及提升工作技能的一些知识。</span>
-							<img src="holder.js/100px70" alt="" />
-							<!-- <img style="width: 100%;height:70px;" src="img/logo.png" alt="" /> -->
+							<img class="sign" src="img/sign.png" alt="" />
 						</div>
 					</div>
 				</li>
@@ -364,14 +537,14 @@ footer>.copDiv {
 						<span class="title">图片分享</span>
 						<div class="text">
 							<div class="imgShare_item">
-								<img src="holder.js/32px80" alt="">
-								<img src="holder.js/32px80" alt="">
-								<img src="holder.js/32px80" alt="">
+								<img src="img/tour1.jpg" alt="">
+								<img src="img/tour2.jpg" alt="">
+								<img src="img/tour3.jpg" alt="">
 							</div>
 							<div class="imgShare_item">
-								<img src="holder.js/32px80" alt="">
-								<img src="holder.js/32px80" alt="">
-								<img src="holder.js/32px80" alt="">
+								<img src="img/tour4.jpg" alt="">
+								<img src="img/blog_main_img1.jpg" alt="">
+								<img src="img/blog_main_img2.jpg" alt="">
 							</div>
 						</div>
 					</div>
@@ -399,7 +572,29 @@ footer>.copDiv {
 	</footer>
 	<script src="js/jquery.min.js"></script>
 	<script src="js/holder.min.js"></script>
-	<script src="js/jquery.lazyload.min.js"></script>
-    <script src="js/basic.js"></script>
+	<script src="js/basic.js"></script>
+	<script>
+		$(document).ready(function(){
+				var hg = parseInt($("article").innerHeight());
+				$("aside").innerHeight(hg);
+				$(".send").on("click", function () {
+					if ($("#say").val() == "") {
+						return;
+					} else {
+						$(".span1>.name>span").text("游客");
+						$(".span1>.onePinglun").text($("#say").val());
+					}
+				})
+				var eve = $(".navUl>li");
+				for (var i = 0; i < eve.length; i++) {
+					(function (i) {
+						$(eve[i]).on('click', function () {
+							$(eve[i]).children("ul").fadeToggle("3000");
+						});
+					})(i);
+				}
+			});
+	</script>
 </body>
+
 </html>

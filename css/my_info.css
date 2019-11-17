@@ -1,24 +1,113 @@
-
 .showInfo {
     width: 100%;
     overflow: hidden;
+    margin-top: 4%;
 }
-
-.showInfo>ul {
-    list-style: none;
+.info{
     float: left;
-    width: 21%;
-    margin: 0 2%;
+    width: 73%;
 }
-
-.showInfo>ul>li {
-    display: block;
-    margin-top: 15%;
-    height: 300px;
-    background:rgb(131, 175, 155);
+.infoDiv{
+    padding: 30px 30px 70px 30px;
 }
-
-.info_item {
+.infoDiv,.guestBook{
     background: white;
+}
+.infoDiv>img,.guestBook>div>img{
+    margin-right: 30px;
+    margin-bottom: 10px;
+    float: left;
+}
+.info>div,.guestBook>div>div{
+    line-height: 2;
+}
+aside{
+    float: right;
+    width: 23%;
+    height: 1100px;
+    box-sizing: border-box;
+    /* border-left: solid 1px gray; */
+    padding: 1% 1% 0 1%;
+    background: white;
+    /* height: 100%; */
+    /* background: blue; */
+}
+.navList {
+    margin-top: 10%;
+}
+
+.navUl {
+    padding: 0 5%;
+    margin-top: 10%;
+    list-style: none;
+}
+
+.navUl>li {
+    display: block;
+    width: 100%;
+    font-size: 17px;
+    line-height: 2;
+    border-bottom: solid 1px #ccc;
+}
+
+.infoTitle{
+    display: inline-block;
+    line-height: 100px;
+    font-size: 25px;
+    position: relative;
+    left: 20%;
+}
+
+.guestBook{
+    margin-top: 30px;
+    padding: 30px;
+}
+
+.guestBook>div>img{
+    margin-right: 30px;
+    margin-bottom: 10px;
+    float: left;
+} 
+.msg{
+    text-indent: 2em;
+    display: inline-block;
+    width: 50%;
+    font-size: 17px;
+    margin-left: 17px;
     text-align: center;
+}
+li:hover{
+    cursor: pointer;
+}
+.navUl>li>ul>li:hover{
+    background: #eee8;;
+}
+.guestBookTitle{
+    display: inline-block;
+    line-height: 100px;
+    font-size: 25px;
+    position: relative;
+    left: 23%;
+}
+.showPingLun{
+    text-align: center;
+    font-size: 17px;
+    margin-top: 20px;
+}
+.masterSay,.otherSay{
+    display: inline-block;
+    line-height: 30px;
+    border-top:1px solid rgb(252 ,157 ,154);
+    border-bottom:1px solid rgb(252 ,157 ,154);
+}
+span.otherSay{
+    border-top: none;
+    line-height: 2;
+}
+#say{
+    background: transparent;
+    border: 1px solid rgb(252 ,157 ,154);
+}
+.pinglun>p{
+    text-align: right;
 }

@@ -54,3 +54,45 @@
     width: 80%;
     padding: 3% 0;
 }
+
+.pagingDiv {
+	position: relative;
+	display: inline-block;
+	left: 50%;
+	top: 30px;
+	transform: translateX(-50%);
+	font-size: 0;
+	border: solid #aaa 1px;
+	border-radius: 10px;
+	background: white;
+	margin: -1px 0;
+
+}
+
+.pagingDiv>span {
+	cursor: pointer;
+	display: inline-block;
+	padding: 10px 16px;
+	font-size: 18px;
+	text-align: center;
+	border-left: 1px #aaa solid;
+}
+
+.pagingDiv>span:not(.active):hover {
+	background: #ddd;
+}
+
+span.first {
+	border-left: none !important;
+	border-top-left-radius: 10px;
+	border-bottom-left-radius: 10px;
+}
+
+span.last {
+	border-top-right-radius: 10px;
+	border-bottom-right-radius: 10px;
+}
+
+span.active {
+	background: #eec;
+}

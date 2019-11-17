@@ -1,15 +1,129 @@
 <!DOCTYPE html>
 <html lang="zh">
+
 <head>
+    <META HTTP-EQUIV="pragma" CONTENT="no-cache">
+    <META HTTP-EQUIV="Cache-Control" CONTENT="no-store, must-revalidate">
+    <META HTTP-EQUIV="expires" CONTENT="Wed, 26 Feb 1997 08:21:57 GMT">
+    <META HTTP-EQUIV="expires" CONTENT="0">
+
     <meta charset="UTF-8">
     <link rel="stylesheet" href="css/my_info.css">
-    <title>my_info</title>
+    <title>showInfo</title>
+    <script src="js/holder.min.js"></script>
 </head>
 
 <body>
     <div class="showInfo">
-      a
+        <div class="info">
+            <div class="infoDiv">
+                <img src="img/blog_main_img4.jpg" width="350px" height="250px" alt="">
+                <div>
+                    <span class="infoTitle">Robot的博客</span><br>
+                    <span>姓名：张三</span><br>
+                    <span>职业：软件工程师</span><br>
+                    <span>
+                        个人简述：软件工程师英文是Software Engineer，是从事软件职业的人员的一种职业能力的认证，通过它说明具备了工程师的资格。软件工程师是从事软件开发相关工作的人员的统称。
+                        它是一个广义的概念，包括软件设计人员、软件架构人员、软件工程管理人员、程序员等一系列岗位，工作内容都与软件开发生产相关。软件工程师的技术要求是比较全面的，除了最基础的编程语言（C语言/C++/JAVA等）、数据库技术（SQL/ORACLE/DB2等）等，还有诸多如JAVASCRIPT、AJAX、HIBERNATE、SPRING等前沿技术。此外，关于网络工程和软件测试的其他技术也要有所涉猎。
+                    </span>
+                </div>
+            </div>
+            <div class="guestBook">
+                <div style="overflow: hidden;">
+                    <img src="img/blog_main_img3.jpg" width="350px" height="250px" alt="">
+                    <div>
+                        <span class="guestBookTitle">留言板</span><br>
+                        <span class="msg">
+                            有人说：爱情就像一杯毒酒，喝下后将万劫不复；也有人说：爱情就是那一杯美酒，喝下后暖入心扉。世间爱情千万种，总有那么一份是你的小幸福，总有一份是专属于你的左心房。
+                        </span>
+                    </div>
+                </div>
+                <div class="showPingLun">
+                    <span class="masterSay">主人寄语：每一缕柔风，都是一次温馨的问候；每一条留言，都是一份真情的写照</span>
+                    <div style="margin-top:3%;">
+                        <span class="otherSay">顾杰义：看了你上次的四川之旅对我这次旅行有很大的帮助</span>
+                        <span class="otherSay">马冬梅：看了你上次的四川之旅对我这次旅行有很大的帮助</span>
+                    </div>
+                </div>
+                <div class="pinglun" style="margin-top:30px;padding-right: 3%;">
+                    <p><input type="text" placeholder="我也说一句..." id="say" /></p>
+                    <div style="margin-top:20px ;overflow: hidden;">
+                        <div style="float: left;"> <span>留言（260）</span><span
+                                style="padding:7px 0 7px 1em ;letter-spacing: 1em;background: rgb(242, 222, 223);cursor: pointer;">全部</span>
+                        </div>
+                        <div style="float: right;">
+                            <span
+                                style="padding:10px 0 10px 1em ;letter-spacing: 1em;background: rgb(242, 222, 223);position: relative;right: 0;cursor: pointer;">发送</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <aside>
+            <div>
+                <img src="img/blog_main_img2.jpg" width="100%" height="20%" alt="">
+                <div class="navList">
+                    <div>
+                        <p align="center">推荐阅读</p>
+                        <ul class="navUl">
+                            <li>旅游趣事
+                                <ul style="list-style: none;display: none;">
+                                    <li>最刺激的历险记</li>
+                                    <li>最刺激的历险记</li>
+                                    <li>最刺激的历险记</li>
+                                </ul>
+                            </li>
+                            <li>学习资料
+                                <ul style="list-style: none;display: none;">
+                                    <li>最刺激的历险记</li>
+                                    <li>最刺激的历险记</li>
+                                    <li>最刺激的历险记</li>
+                                </ul>
+                            </li>
+                            <li>分享图片</li>
+                            <li style="">生活调味剂</li><!-- padding-bottom: 8px;border-bottom: none; -->
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div style="margin-top: 20%;">
+                <div class="navList">
+                    <div>
+                        <p align="center">博客分类</p>
+                        <ul class="navUl">
+                            <li>旅游趣事</li>
+                            <li>学习资料</li>
+                            <li>分享图片</li>
+                            <li>生活小百科</li>
+                            <li>喜欢的音乐</li>
+                            <li>生活调味剂</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </aside>
     </div>
 </body>
+<script>
+
+    $(document).ready(function(){
+				$(".send").on("click", function () {
+					if ($("#say").val() == "") {
+						return;
+					} else {
+						$(".span1>.name>span").text("游客");
+						$(".span1>.onePinglun").text($("#say").val());
+					}
+				})
+				var eve = $(".navUl>li");
+				for (var i = 0; i < eve.length; i++) {
+					(function (i) {
+						$(eve[i]).on('click', function () {
+							$(eve[i]).children("ul").fadeToggle("3000");
+						});
+					})(i);
+				}
+			});
+</script>
 
 </html>
